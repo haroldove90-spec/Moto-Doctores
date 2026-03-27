@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-medical-blue: #0ea5e9;
+  --color-medical-dark: #020617;
+  --color-medical-cyan: #22d3ee;
+  --color-gold: #D4AF37;
+}
+
+@layer base {
+  body {
+    @apply bg-[#020617] text-slate-200 font-sans;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
+      linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    
+    /* Fluid Typography Base */
+    font-size: 14px;
+  }
+  
+  @media (min-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  }
+
+  /* Ensure touch targets are accessible by default */
+  button, 
+  [role="button"],
+  a {
+    @apply min-h-[48px] min-w-[48px] flex items-center justify-center transition-all duration-200;
+  }
+
+  /* Reset for small inline buttons or specific icons */
+  .btn-reset {
+    @apply min-h-0 min-w-0;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(14,165,233,0.1)];
+  }
+  
+  .cyber-button {
+    @apply relative overflow-hidden transition-all duration-300 border border-cyan-500/50 bg-cyan-500/10 hover:bg-cyan-500/20 hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] active:scale-95;
+  }
+
+  .glow-text {
+    @apply text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)];
+  }
+
+  .cyber-grid {
+    background-image: radial-gradient(circle at 2px 2px, rgba(14, 165, 233, 0.15) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+}

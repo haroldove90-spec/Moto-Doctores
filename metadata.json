@@ -1,0 +1,9 @@
+{
+  "name": "Moto Doctores",
+  "description": "Plataforma premium de servicios médicos a domicilio con rastreo en tiempo real, pagos seguros y triaje mediante IA.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}

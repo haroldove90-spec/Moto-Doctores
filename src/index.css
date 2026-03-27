@@ -3,19 +3,26 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --color-medical-blue: #0ea5e9;
-  --color-medical-dark: #020617;
-  --color-medical-cyan: #22d3ee;
-  --color-gold: #D4AF37;
+  
+  /* MotoDoctores Corporate Palette (Extracted from image_2.png) */
+  --color-brand-navy: #051124;      /* Deep Navy for Backgrounds */
+  --color-brand-blue: #00529b;      /* Medical Blue (Logo) */
+  --color-brand-yellow: #fcd116;    /* Traffic Yellow (Logo) */
+  --color-brand-white: #ffffff;      /* Pure White for text */
+  
+  /* Semantic Aliases */
+  --color-medical-blue: var(--color-brand-blue);
+  --color-medical-dark: var(--color-brand-navy);
+  --color-medical-accent: var(--color-brand-yellow);
 }
 
 @layer base {
   body {
-    @apply bg-[#020617] text-slate-200 font-sans;
+    @apply bg-brand-navy text-brand-white font-sans;
     background-image: 
-      radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
-      linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+      radial-gradient(circle at 50% 0%, rgba(0, 82, 155, 0.15) 0%, transparent 50%),
+      linear-gradient(rgba(0, 82, 155, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 82, 155, 0.05) 1px, transparent 1px);
     background-size: 100% 100%, 40px 40px, 40px 40px;
     
     /* Fluid Typography Base */
@@ -43,19 +50,19 @@
 
 @layer components {
   .glass-panel {
-    @apply bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(14,165,233,0.1)];
+    @apply bg-brand-navy/40 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(0,82,155,0.1)];
   }
   
   .cyber-button {
-    @apply relative overflow-hidden transition-all duration-300 border border-cyan-500/50 bg-cyan-500/10 hover:bg-cyan-500/20 hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] active:scale-95;
+    @apply relative overflow-hidden transition-all duration-300 border border-brand-blue/50 bg-brand-blue/10 hover:bg-brand-blue/20 hover:border-brand-blue/80 hover:shadow-[0_0_15px_rgba(0,82,155,0.4)] active:scale-95;
   }
 
   .glow-text {
-    @apply text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)];
+    @apply text-brand-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)];
   }
 
   .cyber-grid {
-    background-image: radial-gradient(circle at 2px 2px, rgba(14, 165, 233, 0.15) 1px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, rgba(0, 82, 155, 0.15) 1px, transparent 0);
     background-size: 24px 24px;
   }
 }

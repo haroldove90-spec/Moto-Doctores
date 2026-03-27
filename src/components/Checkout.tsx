@@ -32,19 +32,19 @@ export default function Checkout({ amount, onSuccess, onCancel }: CheckoutProps)
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-motodoctores-background/60 backdrop-blur-sm p-4"
     >
       <motion.div 
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         exit={{ y: 100 }}
-        className="w-full max-w-md bg-white rounded-t-[40px] sm:rounded-[40px] shadow-2xl overflow-hidden"
+        className="w-full max-w-md bg-motodoctores-background rounded-t-[40px] sm:rounded-[40px] shadow-2xl overflow-hidden border border-white/10"
       >
         <div className="p-8 space-y-6">
           <div className="flex justify-between items-center">
-            <h3 className="text-xl font-bold text-slate-800">Finalizar Pago</h3>
-            <button onClick={onCancel} className="p-2 hover:bg-slate-100 rounded-full transition-colors">
-              <X className="w-5 h-5 text-slate-400" />
+            <h3 className="text-xl font-bold text-motodoctores-text">Finalizar Pago</h3>
+            <button onClick={onCancel} className="p-2 hover:bg-white/5 rounded-full transition-colors">
+              <X className="w-5 h-5 text-motodoctores-text/40" />
             </button>
           </div>
 
@@ -57,35 +57,35 @@ export default function Checkout({ amount, onSuccess, onCancel }: CheckoutProps)
                 exit={{ opacity: 0, x: -20 }}
                 className="space-y-6"
               >
-                <div className="bg-blue-50 p-6 rounded-3xl border border-blue-100 flex justify-between items-center">
+                <div className="bg-motodoctores-accent/10 p-6 rounded-3xl border border-motodoctores-accent/20 flex justify-between items-center">
                   <div className="space-y-1">
-                    <p className="text-sm text-blue-600 font-medium">Total a pagar</p>
-                    <p className="text-3xl font-bold text-blue-700">${amount.toFixed(2)}</p>
+                    <p className="text-sm text-motodoctores-accent/60 font-medium">Total a pagar</p>
+                    <p className="text-3xl font-bold text-motodoctores-accent">${amount.toFixed(2)}</p>
                   </div>
-                  <CreditCard className="w-10 h-10 text-blue-200" />
+                  <CreditCard className="w-10 h-10 text-motodoctores-accent/20" />
                 </div>
 
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                    <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center border border-slate-200">
-                      <CreditCard className="w-5 h-5 text-slate-400" />
+                  <div className="flex items-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/10">
+                    <div className="w-10 h-10 bg-motodoctores-background rounded-xl flex items-center justify-center border border-white/10">
+                      <CreditCard className="w-5 h-5 text-motodoctores-text/40" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm font-bold text-slate-700">•••• •••• •••• 4242</p>
-                      <p className="text-xs text-slate-400">Visa - Expira 12/26</p>
+                      <p className="text-sm font-bold text-motodoctores-text/80">•••• •••• •••• 4242</p>
+                      <p className="text-xs text-motodoctores-text/40">Visa - Expira 12/26</p>
                     </div>
-                    <button className="text-xs font-bold text-blue-600">Cambiar</button>
+                    <button className="text-xs font-bold text-motodoctores-accent">Cambiar</button>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-xs text-slate-400 justify-center">
-                  <ShieldCheck className="w-4 h-4 text-green-500" />
+                <div className="flex items-center gap-2 text-xs text-motodoctores-text/40 justify-center">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   <span>Pago seguro encriptado por MotoDoctores</span>
                 </div>
 
                 <button 
                   onClick={handlePayment}
-                  className="w-full btn-primary h-16 text-lg flex items-center justify-center gap-2"
+                  className="w-full cyber-button h-16 text-lg flex items-center justify-center gap-2 rounded-2xl"
                 >
                   Pagar Ahora
                 </button>
@@ -99,9 +99,9 @@ export default function Checkout({ amount, onSuccess, onCancel }: CheckoutProps)
                 animate={{ opacity: 1, scale: 1 }}
                 className="py-12 flex flex-col items-center justify-center space-y-4"
               >
-                <Loader2 className="w-12 h-12 text-blue-600 animate-spin" />
-                <p className="text-lg font-bold text-slate-800">Procesando pago...</p>
-                <p className="text-sm text-slate-400">No cierres esta ventana</p>
+                <Loader2 className="w-12 h-12 text-motodoctores-accent animate-spin" />
+                <p className="text-lg font-bold text-motodoctores-text">Procesando pago...</p>
+                <p className="text-sm text-motodoctores-text/40">No cierres esta ventana</p>
               </motion.div>
             )}
 
@@ -112,11 +112,11 @@ export default function Checkout({ amount, onSuccess, onCancel }: CheckoutProps)
                 animate={{ opacity: 1, scale: 1 }}
                 className="py-12 flex flex-col items-center justify-center space-y-4 text-center"
               >
-                <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="w-12 h-12 text-green-500" />
+                <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center">
+                  <CheckCircle2 className="w-12 h-12 text-emerald-400" />
                 </div>
-                <h4 className="text-2xl font-bold text-slate-800">¡Pago Exitoso!</h4>
-                <p className="text-slate-500">Tu MotoDoctor ha sido confirmado y está en camino.</p>
+                <h4 className="text-2xl font-bold text-motodoctores-text">¡Pago Exitoso!</h4>
+                <p className="text-motodoctores-text/60">Tu MotoDoctor ha sido confirmado y está en camino.</p>
               </motion.div>
             )}
 
@@ -127,14 +127,14 @@ export default function Checkout({ amount, onSuccess, onCancel }: CheckoutProps)
                 animate={{ opacity: 1, scale: 1 }}
                 className="py-12 flex flex-col items-center justify-center space-y-4 text-center"
               >
-                <div className="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center">
-                  <AlertCircle className="w-12 h-12 text-red-500" />
+                <div className="w-20 h-20 bg-motodoctores-alert/10 rounded-full flex items-center justify-center">
+                  <AlertCircle className="w-12 h-12 text-motodoctores-alert" />
                 </div>
-                <h4 className="text-2xl font-bold text-slate-800">Error en el Pago</h4>
-                <p className="text-slate-500">Hubo un problema con tu tarjeta. Por favor intenta de nuevo.</p>
+                <h4 className="text-2xl font-bold text-motodoctores-text">Error en el Pago</h4>
+                <p className="text-motodoctores-text/60">Hubo un problema con tu tarjeta. Por favor intenta de nuevo.</p>
                 <button 
                   onClick={() => setStatus('idle')}
-                  className="mt-4 px-6 py-2 bg-slate-100 text-slate-700 font-bold rounded-xl"
+                  className="mt-4 px-6 py-2 bg-white/5 text-motodoctores-text font-bold rounded-xl border border-white/10"
                 >
                   Reintentar
                 </button>

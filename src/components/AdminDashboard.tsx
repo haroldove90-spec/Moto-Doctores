@@ -89,36 +89,36 @@ export function AdminDashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-200 p-6 lg:p-10 cyber-grid">
+    <div className="min-h-screen bg-motodoctores-background text-motodoctores-text p-6 lg:p-10 cyber-grid">
       {/* Header */}
       <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <Shield className="w-5 h-5 text-cyan-400" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-cyan-500/70">CENTRO DE COMANDO</span>
+            <Shield className="w-5 h-5 text-motodoctores-accent" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-motodoctores-accent/70">CENTRO DE COMANDO</span>
           </div>
           <h1 className="text-3xl font-bold tracking-tighter glow-text uppercase">
-            MOTO <span className="text-slate-400">DOCTORES</span> <span className="text-cyan-500/30 ml-2">ADMIN</span>
+            MOTO <span className="text-motodoctores-accent/60">DOCTORES</span> <span className="text-motodoctores-accent/30 ml-2">ADMIN</span>
           </h1>
         </div>
         
         <div className="flex items-center gap-4">
           <div className="relative">
-            <Bell className="w-6 h-6 text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer" />
+            <Bell className="w-6 h-6 text-motodoctores-text/40 hover:text-motodoctores-accent transition-colors cursor-pointer" />
             {alerts.length > 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 rounded-full text-[10px] flex items-center justify-center font-bold text-white border-2 border-[#020617] animate-pulse">
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-motodoctores-alert rounded-full text-[10px] flex items-center justify-center font-bold text-motodoctores-background border-2 border-motodoctores-background animate-pulse">
                 {alerts.length}
               </span>
             )}
           </div>
           <div className="h-10 w-[1px] bg-white/10 mx-2"></div>
-          <div className="flex items-center gap-3 glass-panel px-4 py-2 rounded-2xl border-cyan-500/20">
-            <div className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold">
+          <div className="flex items-center gap-3 glass-panel px-4 py-2 rounded-2xl border-motodoctores-accent/20">
+            <div className="w-8 h-8 rounded-full bg-motodoctores-accent/20 flex items-center justify-center text-motodoctores-accent font-bold">
               HO
             </div>
             <div className="hidden sm:block text-left">
               <p className="text-xs font-bold">Harold Ove</p>
-              <p className="text-[10px] text-slate-500 uppercase tracking-tighter">Director General</p>
+              <p className="text-[10px] text-motodoctores-text/40 uppercase tracking-tighter">Director General</p>
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ export function AdminDashboard() {
         {alerts.length > 0 && (
           <section className="mb-10">
             <div className="flex items-center gap-3 mb-6">
-              <AlertTriangle className="w-6 h-6 text-rose-500 animate-pulse" />
+              <AlertTriangle className="w-6 h-6 text-motodoctores-alert animate-pulse" />
               <h2 className="text-xl font-bold tracking-tight uppercase">ALERTAS CRÍTICAS (IA TRIAGE)</h2>
             </div>
             
@@ -140,26 +140,26 @@ export function AdminDashboard() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  className="glass-panel p-6 rounded-3xl border-l-4 border-l-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.15)] relative overflow-hidden"
+                  className="glass-panel p-6 rounded-3xl border-l-4 border-l-motodoctores-alert shadow-[0_0_20px_rgba(254,221,0,0.15)] relative overflow-hidden"
                 >
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1">{alert.time}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-motodoctores-text/40 mb-1">{alert.time}</p>
                       <h3 className="text-lg font-bold">{alert.patient}</h3>
                     </div>
-                    <span className="bg-rose-500/10 text-rose-400 border border-rose-500/30 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                    <span className="bg-motodoctores-alert/10 text-motodoctores-alert border border-motodoctores-alert/30 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
                       CÓDIGO ROJO
                     </span>
                   </div>
-                  <p className="text-sm text-slate-400 mb-4 italic">"{alert.symptoms}"</p>
+                  <p className="text-sm text-motodoctores-text/60 mb-4 italic">"{alert.symptoms}"</p>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-xs text-slate-500">
+                    <div className="flex items-center gap-2 text-xs text-motodoctores-text/40">
                       <MapIcon className="w-4 h-4" />
                       {alert.location}
                     </div>
                     <button 
                       onClick={() => setAlerts(prev => prev.filter(a => a.id !== alert.id))}
-                      className="cyber-button px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest border-rose-500/50 text-rose-400"
+                      className="cyber-button px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest border-motodoctores-alert/50 text-motodoctores-alert"
                     >
                       ASIGNAR MOTO PRIORITARIA
                     </button>
@@ -174,27 +174,27 @@ export function AdminDashboard() {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10">
         {[
-          { label: 'Consultas Hoy', value: `${stats.consultationsToday.completed}/${stats.consultationsToday.total}`, sub: '12% incremento', icon: Activity, color: 'text-cyan-400' },
+          { label: 'Consultas Hoy', value: `${stats.consultationsToday.completed}/${stats.consultationsToday.total}`, sub: '12% incremento', icon: Activity, color: 'text-motodoctores-accent' },
           { label: 'Ingresos Brutos', value: `$${stats.grossRevenue.toLocaleString()}`, sub: 'Comisión: $3,084.00', icon: DollarSign, color: 'text-emerald-400' },
-          { label: 'Tiempo Arribo', value: `${stats.avgArrivalTime} min`, sub: '-2 min vs ayer', icon: Clock, color: 'text-amber-400' },
-          { label: 'Médicos Activos', value: stats.activeDoctors, sub: '4 en espera', icon: Users, color: 'text-indigo-400' },
+          { label: 'Tiempo Arribo', value: `${stats.avgArrivalTime} min`, sub: '-2 min vs ayer', icon: Clock, color: 'text-motodoctores-alert' },
+          { label: 'Médicos Activos', value: stats.activeDoctors, sub: '4 en espera', icon: Users, color: 'text-motodoctores-accent' },
         ].map((kpi, idx) => (
           <motion.div 
             key={idx}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
-            className="glass-panel p-6 rounded-3xl border-white/5 group hover:border-cyan-500/30 transition-colors min-h-[160px]"
+            className="glass-panel p-6 rounded-3xl border-white/5 group hover:border-motodoctores-accent/30 transition-colors min-h-[160px]"
           >
             <div className="flex justify-between items-start mb-4">
-              <div className={cn("p-3 rounded-2xl bg-slate-800 border border-white/5", kpi.color)}>
+              <div className={cn("p-3 rounded-2xl bg-motodoctores-background border border-white/5", kpi.color)}>
                 <kpi.icon className="w-6 h-6" />
               </div>
               <TrendingUp className="w-4 h-4 text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <p className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">{kpi.label}</p>
+            <p className="text-[10px] md:text-xs font-bold text-motodoctores-text/40 uppercase tracking-widest mb-1">{kpi.label}</p>
             <h3 className="text-xl md:text-2xl font-mono font-bold glow-text">{kpi.value}</h3>
-            <p className="text-[10px] text-slate-500 mt-2">{kpi.sub}</p>
+            <p className="text-[10px] text-motodoctores-text/40 mt-2">{kpi.sub}</p>
           </motion.div>
         ))}
       </div>
@@ -204,12 +204,12 @@ export function AdminDashboard() {
         <div className="lg:col-span-2 glass-panel rounded-3xl p-4 md:p-6 border-white/5 order-2 lg:order-1">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
             <h2 className="text-base md:text-lg font-bold flex items-center gap-2 uppercase tracking-tight">
-              <MapIcon className="w-5 h-5 text-cyan-400" />
+              <MapIcon className="w-5 h-5 text-motodoctores-accent" />
               MAPA DE CALOR (DEMANDA)
             </h2>
             <div className="flex gap-2 w-full sm:w-auto">
-              <button className="flex-1 sm:flex-none px-3 py-2 rounded-lg bg-slate-800 text-[10px] font-bold uppercase border border-white/10 min-h-[40px]">Hoy</button>
-              <button className="flex-1 sm:flex-none px-3 py-2 rounded-lg bg-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase border border-cyan-500/30 min-h-[40px]">Semana</button>
+              <button className="flex-1 sm:flex-none px-3 py-2 rounded-lg bg-motodoctores-background text-[10px] font-bold uppercase border border-white/10 min-h-[40px]">Hoy</button>
+              <button className="flex-1 sm:flex-none px-3 py-2 rounded-lg bg-motodoctores-accent/20 text-motodoctores-accent text-[10px] font-bold uppercase border border-motodoctores-accent/30 min-h-[40px]">Semana</button>
             </div>
           </div>
           <div className="h-[300px] md:h-[400px] w-full relative z-0 rounded-2xl overflow-hidden border border-white/5">
@@ -231,44 +231,44 @@ export function AdminDashboard() {
         {/* Commission Summary */}
         <div className="glass-panel rounded-3xl p-6 border-white/5">
           <h2 className="text-lg font-bold mb-6 flex items-center gap-2 uppercase tracking-tight">
-            <TrendingUp className="w-5 h-5 text-cyan-400" />
+            <TrendingUp className="w-5 h-5 text-motodoctores-accent" />
             DISTRIBUCIÓN DE INGRESOS
           </h2>
           <div className="space-y-6">
-            <div className="p-4 bg-slate-800/50 rounded-xl border border-white/5">
+            <div className="p-4 bg-motodoctores-background/50 rounded-xl border border-white/5">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Plataforma (20%)</span>
-                <span className="text-cyan-400 font-mono font-bold">${(stats.grossRevenue * 0.2).toLocaleString()}</span>
+                <span className="text-motodoctores-text/40 text-[10px] font-bold uppercase tracking-widest">Plataforma (20%)</span>
+                <span className="text-motodoctores-accent font-mono font-bold">${(stats.grossRevenue * 0.2).toLocaleString()}</span>
               </div>
-              <div className="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
-                <div className="bg-cyan-500 h-full w-[20%] shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+              <div className="w-full bg-motodoctores-background h-1 rounded-full overflow-hidden">
+                <div className="bg-motodoctores-accent h-full w-[20%] shadow-[0_0_10px_rgba(0,114,206,0.5)]"></div>
               </div>
             </div>
-            <div className="p-4 bg-slate-800/50 rounded-xl border border-white/5">
+            <div className="p-4 bg-motodoctores-background/50 rounded-xl border border-white/5">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Médicos (80%)</span>
-                <span className="text-white font-mono font-bold">${(stats.grossRevenue * 0.8).toLocaleString()}</span>
+                <span className="text-motodoctores-text/40 text-[10px] font-bold uppercase tracking-widest">Médicos (80%)</span>
+                <span className="text-motodoctores-text font-mono font-bold">${(stats.grossRevenue * 0.8).toLocaleString()}</span>
               </div>
-              <div className="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
-                <div className="bg-white h-full w-[80%]"></div>
+              <div className="w-full bg-motodoctores-background h-1 rounded-full overflow-hidden">
+                <div className="bg-motodoctores-text h-full w-[80%]"></div>
               </div>
             </div>
             
             <div className="mt-8 pt-6 border-t border-white/5">
-              <h3 className="text-[10px] font-bold text-slate-500 mb-4 uppercase tracking-[0.2em]">TOP MÉDICOS (GANANCIAS)</h3>
+              <h3 className="text-[10px] font-bold text-motodoctores-text/40 mb-4 uppercase tracking-[0.2em]">TOP MÉDICOS (GANANCIAS)</h3>
               <div className="space-y-4">
                 {doctors.sort((a, b) => b.totalEarnings - a.totalEarnings).slice(0, 3).map((doc, idx) => (
                   <div key={doc.id} className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-[10px] font-bold text-cyan-400 border border-cyan-500/20">
+                      <div className="w-8 h-8 rounded-full bg-motodoctores-background flex items-center justify-center text-[10px] font-bold text-motodoctores-accent border border-motodoctores-accent/20">
                         {idx + 1}
                       </div>
                       <div>
                         <p className="text-sm font-medium">{doc.name}</p>
-                        <p className="text-[10px] text-slate-500 uppercase">{doc.specialty}</p>
+                        <p className="text-[10px] text-motodoctores-text/40 uppercase">{doc.specialty}</p>
                       </div>
                     </div>
-                    <span className="text-sm font-mono font-bold text-white">${doc.totalEarnings.toLocaleString()}</span>
+                    <span className="text-sm font-mono font-bold text-motodoctores-text">${doc.totalEarnings.toLocaleString()}</span>
                   </div>
                 ))}
               </div>
@@ -283,16 +283,16 @@ export function AdminDashboard() {
           <h3 className="text-lg font-bold uppercase tracking-tight">GESTIÓN DE MÉDICOS</h3>
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <div className="relative flex-1 sm:w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-motodoctores-text/40" />
               <input 
                 type="text" 
                 placeholder="Buscar médico..." 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-slate-800/50 border border-white/10 rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-cyan-500/50 transition-colors"
+                className="w-full bg-motodoctores-background/50 border border-white/10 rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-motodoctores-accent/50 transition-colors"
               />
             </div>
-            <button className="p-2 bg-slate-800 border border-white/10 rounded-xl text-slate-400 hover:text-cyan-400">
+            <button className="p-2 bg-motodoctores-background border border-white/10 rounded-xl text-motodoctores-text/40 hover:text-motodoctores-accent">
               <Filter className="w-5 h-5" />
             </button>
           </div>
@@ -301,7 +301,7 @@ export function AdminDashboard() {
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="bg-slate-800/30 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+              <tr className="bg-motodoctores-background/30 text-[10px] font-bold uppercase tracking-widest text-motodoctores-text/40">
                 <th className="px-6 py-4">Médico</th>
                 <th className="px-6 py-4">Especialidad</th>
                 <th className="px-6 py-4">Estado</th>
@@ -315,29 +315,29 @@ export function AdminDashboard() {
                 <tr key={doc.id} className="hover:bg-white/5 transition-colors group">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-[10px] font-bold">
+                      <div className="w-8 h-8 rounded-full bg-motodoctores-background flex items-center justify-center text-[10px] font-bold">
                         {doc.name.split(' ').map(n => n[0]).join('')}
                       </div>
                       <div>
                         <p className="text-sm font-medium">{doc.name}</p>
-                        <div className="flex items-center gap-1 text-[10px] text-cyan-500">
+                        <div className="flex items-center gap-1 text-[10px] text-motodoctores-accent">
                           <CheckCircle2 className="w-3 h-3" />
                           {doc.rating} Rating
                         </div>
                       </div>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-400">{doc.specialty}</td>
+                  <td className="px-6 py-4 text-sm text-motodoctores-text/60">{doc.specialty}</td>
                   <td className="px-6 py-4">
                     <span className={cn(
                       "px-2 py-1 rounded-lg text-[10px] font-bold uppercase",
-                      doc.status === 'active' ? "bg-emerald-500/10 text-emerald-400" : "bg-slate-500/10 text-slate-400"
+                      doc.status === 'active' ? "bg-emerald-500/10 text-emerald-400" : "bg-motodoctores-text/10 text-motodoctores-text/40"
                     )}>
                       {doc.status === 'active' ? 'En Ruta' : 'Inactivo'}
                     </span>
                   </td>
                   <td className="px-6 py-4">
-                    <code className="text-[10px] font-mono text-slate-500 bg-slate-800 px-2 py-1 rounded">{doc.license}</code>
+                    <code className="text-[10px] font-mono text-motodoctores-text/40 bg-motodoctores-background px-2 py-1 rounded">{doc.license}</code>
                   </td>
                   <td className="px-6 py-4">
                     {doc.validated ? (
@@ -348,14 +348,14 @@ export function AdminDashboard() {
                     ) : (
                       <button 
                         onClick={() => handleValidateLicense(doc.id)}
-                        className="cyber-button px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest border-cyan-500/50 text-cyan-400"
+                        className="cyber-button px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest border-motodoctores-accent/50 text-motodoctores-accent"
                       >
                         Validar Cédula
                       </button>
                     )}
                   </td>
                   <td className="px-6 py-4 text-right">
-                    <button className="p-2 hover:text-cyan-400 transition-colors opacity-0 group-hover:opacity-100">
+                    <button className="p-2 hover:text-motodoctores-accent transition-colors opacity-0 group-hover:opacity-100">
                       <ChevronRight className="w-5 h-5" />
                     </button>
                   </td>

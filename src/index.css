@@ -4,25 +4,26 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   
-  /* MotoDoctores Corporate Palette (Extracted from image_2.png) */
-  --color-brand-navy: #051124;      /* Deep Navy for Backgrounds */
-  --color-brand-blue: #00529b;      /* Medical Blue (Logo) */
-  --color-brand-yellow: #fcd116;    /* Traffic Yellow (Logo) */
-  --color-brand-white: #ffffff;      /* Pure White for text */
+  /* MotoDoctores Corporate Palette (Pantone Solid Coated) */
+  --color-brand-navy: #003DA5;      /* Pantone 293 C - Deep Navy Base */
+  --color-brand-blue: #0072CE;      /* Pantone 285 C - Medical Blue Accent */
+  --color-brand-yellow: #FEDD00;    /* Pantone Yellow C - Traffic Yellow Alert */
+  --color-brand-white: #FFFFFF;      /* Pantone P 75-1 C - Pure White Text */
   
-  /* Semantic Aliases */
-  --color-medical-blue: var(--color-brand-blue);
-  --color-medical-dark: var(--color-brand-navy);
-  --color-medical-accent: var(--color-brand-yellow);
+  /* Semantic Aliases for MotoDoctores */
+  --color-motodoctores-background: var(--color-brand-navy);
+  --color-motodoctores-accent: var(--color-brand-blue);
+  --color-motodoctores-alert: var(--color-brand-yellow);
+  --color-motodoctores-text: var(--color-brand-white);
 }
 
 @layer base {
   body {
     @apply bg-brand-navy text-brand-white font-sans;
     background-image: 
-      radial-gradient(circle at 50% 0%, rgba(0, 82, 155, 0.15) 0%, transparent 50%),
-      linear-gradient(rgba(0, 82, 155, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 82, 155, 0.05) 1px, transparent 1px);
+      radial-gradient(circle at 50% 0%, rgba(0, 61, 165, 0.2) 0%, transparent 50%),
+      linear-gradient(rgba(0, 114, 206, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 114, 206, 0.05) 1px, transparent 1px);
     background-size: 100% 100%, 40px 40px, 40px 40px;
     
     /* Fluid Typography Base */
@@ -50,19 +51,19 @@
 
 @layer components {
   .glass-panel {
-    @apply bg-brand-navy/40 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(0,82,155,0.1)];
+    @apply bg-motodoctores-background/40 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(0,114,206,0.1)];
   }
   
   .cyber-button {
-    @apply relative overflow-hidden transition-all duration-300 border border-brand-blue/50 bg-brand-blue/10 hover:bg-brand-blue/20 hover:border-brand-blue/80 hover:shadow-[0_0_15px_rgba(0,82,155,0.4)] active:scale-95;
+    @apply relative overflow-hidden transition-all duration-300 border border-motodoctores-accent/50 bg-motodoctores-accent/10 hover:bg-motodoctores-accent/20 hover:border-motodoctores-accent/80 hover:shadow-[0_0_15px_rgba(0,114,206,0.4)] active:scale-95;
   }
 
   .glow-text {
-    @apply text-brand-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)];
+    @apply text-motodoctores-text drop-shadow-[0_0_8px_rgba(255,255,255,0.3)];
   }
 
   .cyber-grid {
-    background-image: radial-gradient(circle at 2px 2px, rgba(0, 82, 155, 0.15) 1px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, rgba(0, 114, 206, 0.15) 1px, transparent 0);
     background-size: 24px 24px;
   }
 }
